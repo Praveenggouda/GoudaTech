@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GoudTech · Full‑Stack Freelance</title>
+  <title>GoudaTech · Full‑Stack Freelance</title>
   <!-- Font Awesome 6 (Free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -27,7 +27,7 @@
       padding: 0 30px;
     }
 
-    /* ---------- COLOR VARIABLES (refined) ---------- */
+    /* ---------- COLOR VARIABLES ---------- */
     :root {
       --primary: #1a2b4c;
       --primary-light: #2a3f6a;
@@ -121,13 +121,27 @@
       border-bottom: 1px solid var(--gray-200);
     }
 
+    /* --- SPLIT LOGO: "Gouda" + "Tech" --- */
     .logo {
       font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.5px;
-      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 2px;
     }
-    .logo i { color: var(--accent); margin-right: 8px; }
+    .logo .gouda {
+      color: var(--primary-dark);
+    }
+    .logo .tech {
+      color: var(--accent);
+    }
+    .logo i {
+      color: var(--accent);
+      margin-right: 6px;
+      font-size: 1.8rem;
+    }
 
     .nav-links {
       display: flex;
@@ -559,6 +573,7 @@
       .hero-stats { gap: 28px; }
       .tools-flex { gap: 20px 30px; }
       .whatsapp-float { width: 56px; height: 56px; font-size: 2.2rem; bottom: 20px; right: 20px; }
+      .logo { font-size: 1.8rem; }
     }
 
     @media (max-width: 480px) {
@@ -566,6 +581,7 @@
       .btn-primary, .btn-secondary, .btn-accent { width: 100%; justify-content: center; }
       .container { padding: 0 18px; }
       .whatsapp-float { width: 52px; height: 52px; font-size: 2rem; bottom: 16px; right: 16px; }
+      .logo { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -575,7 +591,10 @@
 
   <!-- ========== HEADER ========== -->
   <nav class="navbar">
-    <div class="logo"><i class="fas fa-cubes"></i> GoudTech</div>
+    <a href="#" class="logo">
+      <i class="fas fa-cubes"></i>
+      <span class="gouda">Gouda</span><span class="tech">Tech</span>
+    </a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
@@ -792,7 +811,7 @@
   <!-- ========== CONTACT / CTA ========== -->
   <div class="cta-box" id="contact">
     <div>
-      <h2>Let’s build your full‑stack project</h2>
+      <h2>Let's build your full‑stack project</h2>
       <p>From Figma to database — or fix that tricky JS bug. I handle it all.</p>
       <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px;">
         <span style="background: rgba(255,255,255,0.08); padding: 4px 20px; border-radius: 60px; font-size: 0.9rem; color: #ddd;"><i class="fas fa-clock"></i> 24h response</span>
@@ -811,7 +830,7 @@
 
   <!-- ========== FOOTER ========== -->
   <footer>
-    <div>© 2026 GoudTech · full‑stack freelance</div>
+    <div>© 2026 <span style="font-weight: 600; color: var(--primary-dark);">Gouda</span><span style="font-weight: 600; color: var(--accent);">Tech</span> · full‑stack freelance</div>
     <div class="footer-socials">
       <a href="#"><i class="fab fa-github"></i></a>
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -869,7 +888,7 @@
       });
     });
 
-    console.log('🚀 GoudTech · full‑stack freelance — ready!');
+    console.log('🚀 GoudaTech · full‑stack freelance — ready!');
   })();
 </script>
 </body>
