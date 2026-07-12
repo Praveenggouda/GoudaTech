@@ -45,6 +45,12 @@
       --shadow-hover: 0 24px 60px rgba(0,0,0,0.10);
       --radius: 32px;
       --radius-sm: 16px;
+      /* Brand colors for social icons */
+      --fiverr-green: #1dbf73;
+      --instagram-gradient: #e4405f;
+      --linkedin-blue: #0a66c2;
+      --github-dark: #181717;
+      --whatsapp-green: #25d366;
     }
 
     /* ---------- BUTTONS ---------- */
@@ -228,32 +234,43 @@
       border: 1px solid var(--gray-200);
     }
 
-    /* ---------- SOCIAL BAR ---------- */
+    /* ---------- SOCIAL BAR with BRAND COLORS ---------- */
     .social-bar {
       display: flex;
       justify-content: center;
-      gap: 28px;
+      gap: 20px;
       padding: 24px 0;
       border-top: 1px solid var(--gray-200);
       border-bottom: 1px solid var(--gray-200);
       flex-wrap: wrap;
     }
     .social-bar a {
-      color: var(--gray-800);
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: 500;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 10px;
       transition: 0.2s;
-      padding: 6px 18px;
+      padding: 6px 20px;
       border-radius: 60px;
       background: var(--gray-50);
       border: 1px solid transparent;
     }
-    .social-bar a:hover { color: var(--accent); border-color: var(--gray-200); background: var(--white); }
-    .social-bar i { font-size: 1.6rem; }
+    .social-bar a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    /* Brand colors for icons + text */
+    .social-bar .fiverr { color: var(--fiverr-green); border-color: var(--fiverr-green); }
+    .social-bar .fiverr:hover { background: var(--fiverr-green); color: white; }
+    .social-bar .instagram { color: var(--instagram-gradient); border-color: var(--instagram-gradient); }
+    .social-bar .instagram:hover { background: var(--instagram-gradient); color: white; }
+    .social-bar .linkedin { color: var(--linkedin-blue); border-color: var(--linkedin-blue); }
+    .social-bar .linkedin:hover { background: var(--linkedin-blue); color: white; }
+    .social-bar .github { color: var(--github-dark); border-color: var(--github-dark); }
+    .social-bar .github:hover { background: var(--github-dark); color: white; }
+    .social-bar .whatsapp { color: var(--whatsapp-green); border-color: var(--whatsapp-green); }
+    .social-bar .whatsapp:hover { background: var(--whatsapp-green); color: white; }
+    .social-bar a i { font-size: 1.4rem; }
+    .social-bar a:hover i { color: white; }
 
     /* ---------- SECTION TITLES ---------- */
     .section-title {
@@ -331,10 +348,10 @@
     .pricing-card ul li i { color: var(--accent); width: 20px; }
     .pricing-card .btn-primary, .pricing-card .btn-accent { width: 100%; justify-content: center; }
 
-    /* ---------- PROJECTS ---------- */
+    /* ---------- PROJECTS with REAL IMAGES ---------- */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 32px;
       margin: 30px 0 20px;
     }
@@ -350,7 +367,7 @@
     .project-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
     .project-card .project-img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       border-radius: var(--radius-sm);
       margin-bottom: 16px;
@@ -455,13 +472,18 @@
       transition: 0.2s;
     }
     .footer-socials a:hover { color: var(--accent); }
+    /* Brand color on hover for footer icons */
+    .footer-socials a:hover .fa-fiverr { color: var(--fiverr-green); }
+    .footer-socials a:hover .fa-instagram { color: var(--instagram-gradient); }
+    .footer-socials a:hover .fa-linkedin-in { color: var(--linkedin-blue); }
+    .footer-socials a:hover .fa-github { color: var(--github-dark); }
 
     /* ---------- WHATSAPP FLOATING ---------- */
     .whatsapp-float {
       position: fixed;
       bottom: 28px;
       right: 28px;
-      background: #25D366;
+      background: var(--whatsapp-green);
       color: #fff;
       width: 64px;
       height: 64px;
@@ -586,14 +608,14 @@
       .chatbot-window { width: 300px; right: 16px; bottom: 160px; }
       .whatsapp-float { width: 56px; height: 56px; font-size: 2.2rem; bottom: 20px; right: 20px; }
       .chatbot-toggle { width: 54px; height: 54px; font-size: 1.6rem; bottom: 90px; right: 20px; }
+      .social-bar { gap: 12px; }
+      .social-bar a { font-size: 0.9rem; padding: 4px 14px; }
     }
 
     @media (max-width: 480px) {
       .hero-content h1 { font-size: 2.2rem; }
       .container { padding: 0 16px; }
       .btn-primary, .btn-accent, .btn-outline { width: 100%; justify-content: center; }
-      .social-bar { gap: 12px; }
-      .social-bar a { font-size: 1rem; padding: 4px 12px; }
     }
   </style>
 </head>
@@ -612,41 +634,42 @@
     </div>
   </nav>
 
-  <!-- ====== HERO ====== -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="badge-top"><i class="fas fa-code"></i> full‑stack · 2 projects delivered</div>
-      <h1>Full‑stack <br><span>that delivers</span></h1>
-      <p>From UI/UX to databases — I build complete web solutions. Landing pages, Figma to code, and fixing every HTML/CSS/JS issue.</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn-primary"><i class="fas fa-rocket"></i> Start project</a>
-        <a href="#portfolio" class="btn-outline"><i class="fas fa-arrow-right"></i> View work</a>
-      </div>
-      <div class="hero-stats">
-        <div>2 <span>projects</span><small>live & delivered</small></div>
-        <div>4.9 <span>⭐</span><small>client rating</small></div>
-        <div>100% <span>on time</span><small>fast turnaround</small></div>
-      </div>
+ <!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="badge-top"><i class="fas fa-code"></i> full‑stack · 2 projects delivered</div>
+    <h1>Full‑stack <br><span>that delivers</span></h1>
+    <p>From UI/UX to databases — I build complete web solutions. Landing pages, Figma to code, and fixing every HTML/CSS/JS issue.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary"><i class="fas fa-rocket"></i> Start project</a>
+      <a href="#portfolio" class="btn-outline"><i class="fas fa-arrow-right"></i> View work</a>
     </div>
-    <div class="hero-image">
-      <!-- profile photo placeholder – replace src with your actual image -->
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23e2e8f0'/%3E%3Ctext x='30' y='110' font-family='Inter' font-size='24' fill='%230f2b4b' font-weight='bold'%3E📸%3C/text%3E%3Ctext x='30' y='150' font-family='Inter' font-size='14' fill='%23475569'%3EPraveen%3C/text%3E%3C/svg%3E"
-           alt="Praveen Gouda" class="profile-pic">
-      <h3>Praveen Gouda</h3>
-      <p>Full‑Stack Developer</p>
-      <div class="tech-tags">
-        <span>React</span><span>Node.js</span><span>MongoDB</span><span>SQL</span>
-      </div>
+    <div class="hero-stats">
+      <div>2 <span>projects</span><small>live & delivered</small></div>
+      <div>4.9 <span>⭐</span><small>client rating</small></div>
+      <div>100% <span>on time</span><small>fast turnaround</small></div>
     </div>
-  </section>
+  </div>
+  <div class="hero-image">
+    <!-- Profile photo - replace with your actual image -->
+    <img src="file:///C:/Users/Megha%20Gouda/OneDrive/Desktop/Gouda%20Tech/me%202.jpeg"
+         alt="Praveen Gouda" 
+         class="profile-pic">
+    <h3>Praveen Gouda</h3>
+    <p>Full‑Stack Developer</p>
+    <div class="tech-tags">
+      <span>React</span><span>Node.js</span><span>MongoDB</span><span>SQL</span>
+    </div>
+  </div>
+</section>
 
-  <!-- ====== SOCIAL BAR ====== -->
+  <!-- ====== SOCIAL BAR with BRAND COLORS ====== -->
   <div class="social-bar">
-    <a href="https://github.com/Praveenggouda" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/praveen-gouda-20a359263/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-    <a href="https://www.instagram.com/impraveengouda/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-    <a href="https://www.fiverr.com/praveen_gouda07?public_mode=true" target="_blank"><i class="fas fa-briefcase"></i> Fiverr</a>
-    <a href="https://wa.me/918431878531" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://github.com/Praveenggouda" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/praveen-gouda-20a359263/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    <a href="https://www.instagram.com/impraveengouda/" target="_blank" class="instagram"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://www.fiverr.com/praveen_gouda07?public_mode=true" target="_blank" class="fiverr"><i class="fas fa-briefcase"></i> Fiverr</a>
+    <a href="https://wa.me/918431878531" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
   </div>
 
   <!-- ====== SERVICES ====== -->
@@ -675,7 +698,7 @@
     </div>
   </div>
 
-  <!-- ====== PRICING ====== -->
+  <!-- ====== PRICING with WhatsApp links ====== -->
   <h2 class="section-title" id="pricing">Choose your package</h2>
   <p class="section-sub">Flexible plans for every project size. All include quality guarantee.</p>
   <div class="pricing-grid">
@@ -688,7 +711,7 @@
         <li><i class="fas fa-check-circle"></i> Figma to code</li>
         <li><i class="fas fa-check-circle"></i> 1 revision round</li>
       </ul>
-      <a href="#contact" class="btn-primary">Get started</a>
+      <a href="https://wa.me/918431878531?text=Hi%20Praveen,%20I'm%20interested%20in%20your%20Starter%20package%20(₹2,000).%20Let's%20discuss!" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Get started</a>
     </div>
     <div class="pricing-card popular">
       <span class="badge-pop">Most popular</span>
@@ -701,7 +724,7 @@
         <li><i class="fas fa-check-circle"></i> 3 revision rounds</li>
         <li><i class="fas fa-check-circle"></i> Deployment support</li>
       </ul>
-      <a href="#contact" class="btn-accent">Get started</a>
+      <a href="https://wa.me/918431878531?text=Hi%20Praveen,%20I'm%20interested%20in%20your%20Mid%20package%20(₹5,000).%20Let's%20discuss!" target="_blank" class="btn-accent"><i class="fab fa-whatsapp"></i> Get started</a>
     </div>
     <div class="pricing-card">
       <h3>Premium</h3>
@@ -713,38 +736,48 @@
         <li><i class="fas fa-check-circle"></i> Unlimited revisions</li>
         <li><i class="fas fa-check-circle"></i> 1 month support</li>
       </ul>
-      <a href="#contact" class="btn-primary">Get started</a>
+      <a href="https://wa.me/918431878531?text=Hi%20Praveen,%20I'm%20interested%20in%20your%20Premium%20package%20(₹10,000).%20Let's%20discuss!" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Get started</a>
     </div>
   </div>
 
-  <!-- ====== PORTFOLIO ====== -->
-  <h2 class="section-title" id="portfolio">Projects delivered</h2>
-  <p class="section-sub">Two full‑stack projects — built from scratch, deployed, and loved by clients.</p>
-  <div class="projects-grid">
-    <div class="project-card">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e2e8f0'/%3E%3Ctext x='30' y='110' font-family='Inter' font-size='18' fill='%230f2b4b' font-weight='bold'%3E👕 T‑Shirt E‑commerce%3C/text%3E%3Ctext x='30' y='145' font-family='Inter' font-size='14' fill='%23475569'%3EReact · Node · MongoDB%3C/text%3E%3C/svg%3E"
-           alt="T-shirt ecommerce" class="project-img">
-      <h3>T‑Shirt E‑commerce</h3>
-      <p>Complete online store with product catalog, cart, secure checkout, and admin panel.</p>
-      <div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Stripe</span></div>
-      <div class="project-links">
-        <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
-        <a href="#" class="outline"><i class="fab fa-github"></i> Source</a>
-      </div>
+  <!-- ====== PORTFOLIO with REAL PROJECT IMAGES ====== -->
+<h2 class="section-title" id="portfolio">Projects delivered</h2>
+<p class="section-sub">Two full‑stack projects — built from scratch, deployed, and loved by clients.</p>
+<div class="projects-grid">
+  
+  <!-- T-Shirt Ecommerce -->
+  <div class="project-card">
+    <img src="file:///C:/Users/Megha%20Gouda/OneDrive/Desktop/Gouda%20Tech/t-shirt%20ecommerce.png"
+         alt="T-Shirt Ecommerce Project" 
+         class="project-img">
+    <h3>T‑Shirt E‑commerce</h3>
+    <p>Complete online store with product catalog, cart, secure checkout, and admin panel.</p>
+    <div class="project-tags">
+      <span>React</span><span>Node.js</span><span>MongoDB</span><span>Stripe</span>
     </div>
-    <div class="project-card">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e2e8f0'/%3E%3Ctext x='30' y='110' font-family='Inter' font-size='18' fill='%230f2b4b' font-weight='bold'%3E💇 Salon Booking%3C/text%3E%3Ctext x='30' y='145' font-family='Inter' font-size='14' fill='%23475569'%3EReact · Node · PostgreSQL%3C/text%3E%3C/svg%3E"
-           alt="Salon booking" class="project-img">
-      <h3>Salon Booking Platform</h3>
-      <p>Beauty salon booking system with real‑time availability, client profiles, and admin dashboard.</p>
-      <div class="project-tags"><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>JWT</span></div>
-      <div class="project-links">
-        <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
-        <a href="#" class="outline"><i class="fab fa-github"></i> Source</a>
-      </div>
+    <div class="project-links">
+      <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
+      <a href="#" class="outline"><i class="fab fa-github"></i> Source</a>
     </div>
   </div>
 
+  <!-- Salon Booking -->
+  <div class="project-card">
+    <img src="file:///C:/Users/Megha%20Gouda/OneDrive/Desktop/Gouda%20Tech/salon%20booking%20website%20(1).png"
+         alt="Salon Booking Platform" 
+         class="project-img">
+    <h3>Salon Booking Platform</h3>
+    <p>Beauty salon booking system with real‑time availability, client profiles, and admin dashboard.</p>
+    <div class="project-tags">
+      <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>JWT</span>
+    </div>
+    <div class="project-links">
+      <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
+      <a href="#" class="outline"><i class="fab fa-github"></i> Source</a>
+    </div>
+  </div>
+  
+</div>
   <!-- ====== FAQ ====== -->
   <h2 class="section-title" style="margin-top: 50px;">Frequently asked questions</h2>
   <p class="section-sub">Quick answers to common questions.</p>
