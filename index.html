@@ -133,6 +133,10 @@
     .project{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:#fff;transition:all .3s ease}
     .project:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
     .project-preview{height:260px;padding:25px;display:grid;place-items:center;background:linear-gradient(135deg,var(--surface-2),var(--surface))}
+    .project-preview.project-preview-image{padding:0;position:relative;display:block;overflow:hidden;background:#e9eadf;isolation:isolate}
+    .project-preview.project-preview-image:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.34));pointer-events:none}
+    .project-preview.project-preview-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .55s ease}
+    .project:hover .project-preview.project-preview-image img{transform:scale(1.035)}
     .mock-window{width:90%;height:100%;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--brand-navy);overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.05)}
     .mock-bar{height:24px;background:#f1f5f9;display:flex;align-items:center;gap:5px;padding:0 12px;border-bottom:1px solid var(--line)}.mock-bar i{width:6px;height:6px;border-radius:50%;background:#cbd5e1}
     .mock-content{padding:20px}.mock-brand{font:800 .9rem Manrope;color:var(--brand-navy)}.mock-title{font:800 1.4rem Manrope;line-height:1.1;margin:12px 0 8px;max-width:250px}.mock-sub{font-size:.6rem;color:var(--muted)}.mock-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}.mock-tiles span{height:60px;border-radius:6px;background:linear-gradient(135deg,#e2e8f0,#f8fafc);border:1px solid var(--line)}
@@ -317,8 +321,20 @@
     </div></section>
 
     <section class="section work-section" id="work"><div class="container">
-      <div class="section-head reveal"><span class="kicker">Selected work</span><h2>Thoughtful work.<br><span class="gradient">Real-world solutions.</span></h2><p>A look at projects and concepts built to solve practical business needs. Each project has its own goals, users and technical requirements.</p></div>
+      <div class="section-head reveal"><span class="kicker">Selected work</span><h2>Thoughtful work.<br><span class="gradient">Real-world solutions.</span></h2><p>A selection of websites and digital products designed and developed by GoudaTech — from e-commerce experiences to booking platforms and business websites.</p></div>
       <div class="projects">
+        <article class="project reveal">
+          <a class="project-preview project-preview-image" href="https://praveenggouda.github.io/Prago/#" target="_blank" rel="noopener" aria-label="Open the PRAGO e-commerce website">
+            <img src="images/prago-portfolio-thumbnail.png" alt="PRAGO streetwear e-commerce homepage preview" loading="lazy">
+          </a>
+          <div class="project-info">
+            <div class="project-top"><h3>PRAGO · E-commerce Store</h3><span class="status">Live website</span></div>
+            <p>A streetwear storefront concept for the PRAGO clothing brand, featuring product browsing, category filters, product details, a shopping bag, customer account flow and an admin dashboard demo.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>E-commerce UI</span><span>Responsive design</span></div>
+            <a class="project-link" href="https://praveenggouda.github.io/Prago/#" target="_blank" rel="noopener">View live PRAGO store <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
         <article class="project reveal">
           <div class="project-preview">
             <div class="mock-window">
